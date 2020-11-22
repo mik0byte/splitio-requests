@@ -4,9 +4,9 @@ stages:
   - validate
   - test
   - coverage
-    if: branch = master
+    if: branch = main
   - deploy
-    if: branch = master
+    if: branch = main
 
 jobs:
   include:
