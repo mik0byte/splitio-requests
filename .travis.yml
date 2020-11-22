@@ -42,9 +42,10 @@ jobs:
       after_success:
         - codecov
     - stage: deploy
-      script: echo "Building to PyPI"
       deploy:
         provider: pypi
         user: __token__
         password: $PYPI_TOKEN
+        on:
+          branch: main
       python: 3.8
