@@ -1,8 +1,6 @@
 language: python
-python:
-    - "3.6"
-    - "3.7"
-    - "3.8"
+cache: pip
+install: travis_retry pip install -U tox
 
 stages:
   - validate
@@ -12,7 +10,6 @@ stages:
   - name: deploy
     if: branch = main
 
-install: pip install tox
 
 jobs:
   include:
@@ -26,7 +23,17 @@ jobs:
       script: tox -e mypy
       python: 3.8
     - stage: test
-      script: tox
+      python: 3.6
+      script: tox -e py36
+    - stage: test
+      python: 3.7
+      script: tox -e py37
+    - stage: test
+      python: 3.8
+      script: tox -e py38
+    - stage: test
+      python: 3.9
+      script: tox -e py39
     - stage: coverage
       script:
         - pip install codecov==2.1.10
