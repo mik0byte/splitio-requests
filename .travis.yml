@@ -26,7 +26,7 @@ jobs:
       python: 3.6
       script: tox -e py36
     - stage: test
-      python: 3.7
+      python: 3.7.9
       script: tox -e py37
     - stage: test
       python: 3.8
