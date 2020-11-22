@@ -5,10 +5,8 @@ install: travis_retry pip install -U tox
 stages:
   - validate
   - test
-  - name: coverage
-    if: branch = main
-  - name: deploy
-    if: branch = main
+  - coverage
+  - deploy
 
 
 jobs:
@@ -39,13 +37,15 @@ jobs:
         - pip install codecov==2.1.10
         - tox -e coverage
       python: 3.8
+      on:
+        branch: master
       after_success:
         - codecov
     - stage: deploy
+      python: 3.8
       deploy:
         provider: pypi
         user: __token__
         password: $PYPI_TOKEN
         on:
           branch: main
-      python: 3.8
