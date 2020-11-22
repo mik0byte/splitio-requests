@@ -18,16 +18,20 @@ jobs:
   include:
     - stage: validate
       script: tox -e flake8
+      python: 3.8
     - stage: validate
       script: tox -e bandit
+      python: 3.8
     - stage: validate
       script: tox -e mypy
+      python: 3.8
     - stage: test
       script: tox
     - stage: coverage
       script:
         - pip install codecov==2.1.10
         - tox -e coverage
+      python: 3.8
       after_success:
         - codecov
     - stage: deploy
@@ -36,3 +40,4 @@ jobs:
         provider: pypi
         user: __token__
         password: $PYPI_TOKEN
+      python: 3.8
