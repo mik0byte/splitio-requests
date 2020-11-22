@@ -1,27 +1,44 @@
 language: python
+cache: pip
+install: travis_retry pip install -U tox
 
 stages:
   - validate
   - test
-  - coverage
+  - name: coverage
     if: branch = main
-  - deploy
+  - name: deploy
     if: branch = main
+
 
 jobs:
   include:
     - stage: validate
       script: tox -e flake8
+      python: 3.8
     - stage: validate
       script: tox -e bandit
+      python: 3.8
     - stage: validate
       script: tox -e mypy
+      python: 3.8
     - stage: test
-      script: tox
+      python: 3.6
+      script: tox -e py36
+    - stage: test
+      python: 3.7.9
+      script: tox -e py37
+    - stage: test
+      python: 3.8
+      script: tox -e py38
+    - stage: test
+      python: 3.9
+      script: tox -e py39
     - stage: coverage
       script:
         - pip install codecov==2.1.10
         - tox -e coverage
+      python: 3.8
       after_success:
         - codecov
     - stage: deploy
@@ -30,3 +47,4 @@ jobs:
         provider: pypi
         user: __token__
         password: $PYPI_TOKEN
+      python: 3.8
