@@ -3,9 +3,9 @@ language: python
 stages:
   - validate
   - test
-  - coverage
+  - name: coverage
     if: branch = main
-  - deploy
+  - name: deploy
     if: branch = main
 
 jobs:
