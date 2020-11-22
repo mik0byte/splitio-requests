@@ -8,6 +8,8 @@ stages:
   - name: deploy
     if: branch = main
 
+script: pip install tox
+
 jobs:
   include:
     - stage: validate
