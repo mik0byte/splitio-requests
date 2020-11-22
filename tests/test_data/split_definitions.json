@@ -1,0 +1,537 @@
+{
+    "objects": [
+        {
+            "unknown_field": "value",
+            "name": "a",
+            "environment": {
+                "id": "624cv4b0-b8r9-11e2-a011-0a5df412244a",
+                "name": "Prod",
+                "unknown_field": "value"
+            },
+            "trafficType": {
+                "id": "624a3eae-be69-31e9-f010-0a53dg10077c",
+                "name": "user",
+                "unknown_field": "value"
+
+            },
+            "killed": false,
+            "treatments": [
+                {
+                    "name": "on",
+                    "description": "description for on",
+                    "unknown_field": "value",
+                    "keys": [
+                        "123"
+                    ],
+                    "configurations": "{\"key1\":\"val1\"}"
+                },
+                {
+                    "name": "off",
+                    "description": "description for off",
+                    "unknown_field": "value",
+                    "segments": [
+                        "Test_Segment"
+                    ],
+                    "configurations": "{\"\":\"\"}"
+                },
+                {
+                    "name": "specific",
+                    "description": "description for specific",
+                    "configurations": "{\"key3\":\"val3\"}"
+                }
+            ],
+            "defaultTreatment": "on",
+            "baselineTreatment": "off",
+            "trafficAllocation": 48,
+            "rules": [
+                {
+                    "buckets": [
+                        {
+                            "treatment": "on",
+                            "unknown_field": "value",
+                            "size": 100
+                        }
+                    ],
+                    "condition": {
+                        "combiner": "AND",
+                        "unknown_field": "value",
+                        "matchers": [
+                            {
+                                "type": "IN_SEGMENT",
+                                "unknown_field": "value",
+                                "string": "Test_Segment"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "buckets": [
+                        {
+                            "treatment": "on",
+                            "size": 100
+                        }
+                    ],
+                    "condition": {
+                        "combiner": "AND",
+                        "unknown_field": "value",
+                        "matchers": [
+                            {
+                                "type": "IN_SPLIT",
+                                "depends": {
+                                    "splitName": "test-feature-on",
+                                    "unknown_field": "value",
+                                    "treatments": [
+                                        "on"
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "IN_SPLIT",
+                                "unknown_field": "value",
+                                "negate": true,
+                                "depends": {
+                                    "splitName": "test-feature-off",
+                                    "treatments": [
+                                        "on"
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "buckets": [
+                        {
+                            "treatment": "specific",
+                            "size": 100
+                        }
+                    ],
+                    "condition": {
+                        "combiner": "AND",
+                        "matchers": [
+                            {
+                                "type": "IN_LIST_STRING",
+                                "strings": [
+                                    "123",
+                                    "333"
+                                ]
+                            },
+                            {
+                                "type": "IN_LIST_STRING",
+                                "negate": true,
+                                "strings": [
+                                    "333",
+                                    "222"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "buckets": [
+                        {
+                            "treatment": "specific",
+                            "size": 100
+                        }
+                    ],
+                    "condition": {
+                        "combiner": "AND",
+                        "matchers": [
+                            {
+                                "type": "STARTS_WITH_STRING",
+                                "attribute": "ewg",
+                                "strings": [
+                                    "weg"
+                                ]
+                            },
+                            {
+                                "type": "STARTS_WITH_STRING",
+                                "negate": true,
+                                "attribute": "weg",
+                                "strings": [
+                                    "weg"
+                                ]
+                            },
+                            {
+                                "type": "ENDS_WITH_STRING",
+                                "attribute": "weg",
+                                "strings": [
+                                    "weg"
+                                ]
+                            },
+                            {
+                                "type": "ENDS_WITH_STRING",
+                                "negate": true,
+                                "attribute": "weg",
+                                "strings": [
+                                    "werf"
+                                ]
+                            },
+                            {
+                                "type": "CONTAINS_STRING",
+                                "attribute": "wergf",
+                                "strings": [
+                                    "weg"
+                                ]
+                            },
+                            {
+                                "type": "CONTAINS_STRING",
+                                "negate": true,
+                                "attribute": "weg",
+                                "strings": [
+                                    "wergf"
+                                ]
+                            },
+                            {
+                                "type": "MATCHES_STRING",
+                                "attribute": "weg",
+                                "string": "weg"
+                            },
+                            {
+                                "type": "MATCHES_STRING",
+                                "negate": true,
+                                "attribute": "weg",
+                                "string": "weg"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "buckets": [
+                        {
+                            "treatment": "off",
+                            "size": 100
+                        }
+                    ],
+                    "condition": {
+                        "combiner": "AND",
+                        "matchers": [
+                            {
+                                "type": "EQUAL_SET",
+                                "attribute": "weg",
+                                "strings": [
+                                    "weg"
+                                ]
+                            },
+                            {
+                                "type": "EQUAL_SET",
+                                "negate": true,
+                                "attribute": "wegff",
+                                "strings": [
+                                    "weg"
+                                ]
+                            },
+                            {
+                                "type": "ANY_OF_SET",
+                                "attribute": "werg",
+                                "strings": [
+                                    "weg",
+                                    "swdvsd"
+                                ]
+                            },
+                            {
+                                "type": "ANY_OF_SET",
+                                "negate": true,
+                                "attribute": "weg",
+                                "strings": [
+                                    "weg"
+                                ]
+                            },
+                            {
+                                "type": "ALL_OF_SET",
+                                "attribute": "weg",
+                                "strings": [
+                                    "weg"
+                                ]
+                            },
+                            {
+                                "type": "ALL_OF_SET",
+                                "negate": true,
+                                "attribute": "weg",
+                                "strings": [
+                                    "weg"
+                                ]
+                            },
+                            {
+                                "type": "PART_OF_SET",
+                                "attribute": "weg",
+                                "strings": [
+                                    "wegwerg"
+                                ]
+                            },
+                            {
+                                "type": "PART_OF_SET",
+                                "negate": true,
+                                "attribute": "weg",
+                                "strings": [
+                                    "wegwerg"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "buckets": [
+                        {
+                            "treatment": "off",
+                            "size": 100
+                        }
+                    ],
+                    "condition": {
+                        "combiner": "AND",
+                        "matchers": [
+                            {
+                                "type": "ON_DATE",
+                                "attribute": "weg",
+                                "date": 1590796800000
+                            },
+                            {
+                                "type": "ON_DATE",
+                                "negate": true,
+                                "attribute": "weg",
+                                "date": 1590796800000
+                            },
+                            {
+                                "type": "ON_OR_BEFORE_DATE",
+                                "attribute": "weg",
+                                "date": 1590818880000
+                            },
+                            {
+                                "type": "ON_OR_AFTER_DATE",
+                                "attribute": "weg",
+                                "date": 1590818880000
+                            },
+                            {
+                                "type": "BETWEEN_DATE",
+                                "attribute": "erghh",
+                                "between": {
+                                    "from": 1590818940000,
+                                    "to": 1590905340000
+                                }
+                            },
+                            {
+                                "type": "BETWEEN_DATE",
+                                "negate": true,
+                                "attribute": "ergh",
+                                "between": {
+                                    "from": 1590818940000,
+                                    "to": 1590905340000
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "buckets": [
+                        {
+                            "treatment": "on",
+                            "size": 100
+                        }
+                    ],
+                    "condition": {
+                        "combiner": "AND",
+                        "matchers": [
+                            {
+                                "type": "EQUAL_NUMBER",
+                                "attribute": "ewsrgh",
+                                "number": 143
+                            },
+                            {
+                                "type": "EQUAL_NUMBER",
+                                "negate": true,
+                                "attribute": "wef",
+                                "number": 34
+                            },
+                            {
+                                "type": "LESS_THAN_OR_EQUAL_NUMBER",
+                                "attribute": "wdsg",
+                                "number": 1234234
+                            },
+                            {
+                                "type": "GREATER_THAN_OR_EQUAL_NUMBER",
+                                "attribute": "weg",
+                                "number": 1324
+                            },
+                            {
+                                "type": "BETWEEN_NUMBER",
+                                "attribute": "werg",
+                                "between": {
+                                    "from": 24,
+                                    "to": 2234
+                                }
+                            },
+                            {
+                                "type": "BETWEEN_NUMBER",
+                                "negate": true,
+                                "attribute": "erth",
+                                "between": {
+                                    "from": 345,
+                                    "to": 34534
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "buckets": [
+                        {
+                            "treatment": "on",
+                            "size": 100
+                        }
+                    ],
+                    "condition": {
+                        "combiner": "AND",
+                        "matchers": [
+                            {
+                                "type": "BOOLEAN",
+                                "attribute": "ewrtg",
+                                "bool": true
+                            },
+                            {
+                                "type": "BOOLEAN",
+                                "attribute": "erg",
+                                "bool": false
+                            }
+                        ]
+                    }
+                },
+                {
+                    "buckets": [
+                        {
+                            "treatment": "off",
+                            "size": 100
+                        }
+                    ],
+                    "condition": {
+                        "combiner": "AND",
+                        "matchers": [
+                            {
+                                "unknown_field": "value",
+                                "type": "IN_SEGMENT",
+                                "negate": true,
+                                "string": "Test_Segment"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "defaultRule": [
+                {
+                    "unknown_field": "value",
+                    "treatment": "specific",
+                    "size": 100
+                }
+            ],
+            "creationTime": 1590687913079,
+            "lastUpdateTime": 1590819203065
+        },
+        {
+            "name": "test-feature-off",
+            "environment": {
+                "id": "624cv4b0-b8r9-11e2-a011-0a5df412244a",
+                "name": "Prod"
+            },
+            "trafficType": {
+                "id": "624a3eae-be69-31e9-f010-0a53dg10077c",
+                "name": "user"
+            },
+            "killed": false,
+            "treatments": [
+                {
+                    "name": "on",
+                    "description": ""
+                },
+                {
+                    "name": "off",
+                    "description": ""
+                }
+            ],
+            "defaultTreatment": "off",
+            "baselineTreatment": "off",
+            "trafficAllocation": 100,
+            "rules": [],
+            "defaultRule": [
+                {
+                    "treatment": "off",
+                    "size": 100
+                }
+            ],
+            "creationTime": 1590765873132,
+            "lastUpdateTime": 1590765873132
+        },
+        {
+            "name": "test-feature-on",
+            "environment": {
+                "id": "624cv4b0-b8r9-11e2-a011-0a5df412244a",
+                "name": "Prod"
+            },
+            "trafficType": {
+                "id": "624a3eae-be69-31e9-f010-0a53dg10077c",
+                "name": "user"
+            },
+            "killed": false,
+            "treatments": [
+                {
+                    "name": "on",
+                    "description": ""
+                },
+                {
+                    "name": "off",
+                    "description": ""
+                }
+            ],
+            "defaultTreatment": "off",
+            "baselineTreatment": "off",
+            "trafficAllocation": 100,
+            "rules": [],
+            "defaultRule": [
+                {
+                    "treatment": "on",
+                    "size": 100
+                }
+            ],
+            "creationTime": 1590765841655,
+            "lastUpdateTime": 1590765841655
+        },
+        {
+            "name": "test_load_split_definition",
+            "environment": {
+                "id": "624cv4b0-b8r9-11e2-a011-0a5df412244a",
+                "name": "Prod"
+            },
+            "trafficType": {
+                "unknown_field": "value",
+                "id": "624a3eae-be69-31e9-f010-0a53dg10077c",
+                "name": "user"
+            },
+            "killed": false,
+            "treatments": [
+                {
+                    "name": "on",
+                    "description": ""
+                },
+                {
+                    "name": "off",
+                    "description": ""
+                }
+            ],
+            "defaultTreatment": "off",
+            "baselineTreatment": "off",
+            "trafficAllocation": 100,
+            "rules": [],
+            "defaultRule": [
+                {
+                    "treatment": "off",
+                    "size": 100
+                }
+            ],
+            "creationTime": 1590681967862,
+            "unknown_field": "value",
+            "lastUpdateTime": 1590687912320
+        }
+    ],
+    "offset": 0,
+    "unknown_field": "value",
+    "limit": 20,
+    "totalCount": 4
+}

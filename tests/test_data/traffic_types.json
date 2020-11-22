@@ -1,0 +1,27 @@
+{
+    "with_unknown": [
+        {
+            "name": "tenant",
+            "id": "f1d2bg50-c38b-1he9-8j82-1yd3f8976120",
+            "displayAttributeId": "name",
+            "unknown_field": "value"
+        },
+        {
+            "name": "user",
+            "id": "f1d2bb50-ct8f-1fe9-8382-12g3f8976120",
+            "displayAttributeId": "name"
+        }
+    ],
+    "without_unknown": [
+        {
+            "name": "tenant",
+            "id": "f1d2bg50-c38b-1he9-8j82-1yd3f8976120",
+            "displayAttributeId": "name"
+        },
+        {
+            "name": "user",
+            "id": "f1d2bb50-ct8f-1fe9-8382-12g3f8976120",
+            "displayAttributeId": "name"
+        }
+    ]
+}

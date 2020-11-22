@@ -1,0 +1,70 @@
+{
+  "environment": {
+      "with_unknown":{
+         "id":"a5445844-bc7a-11ea-23ec-144c5g7vf303",
+         "unknown_field": "hey",
+         "orgId":"71g1f560-at30-12er-9g6b-0ayc0y13e776",
+         "name":"test_env",
+         "production":false,
+         "status":"ACTIVE",
+         "workspaceIds":[
+            "623f570-r869-r339-ac1g-0g24s210077c"
+         ],
+         "creationTime":1593704553316,
+         "permissioningEnabled":false,
+         "segments":null,
+         "tests":null,
+         "apiTokens":null,
+         "workspaces":null,
+         "integrations":null,
+         "permissions":null,
+         "settings":null
+      },
+      "without_unknown":{
+         "id":"a5445844-bc7a-11ea-23ec-144c5g7vf303",
+         "orgId":"71g1f560-at30-12er-9g6b-0ayc0y13e776",
+         "name":"test_env",
+         "production":false,
+         "status":"ACTIVE",
+         "workspaceIds":[
+            "623f570-r869-r339-ac1g-0g24s210077c"
+         ],
+         "creationTime":1593704553316,
+         "permissioningEnabled":false,
+         "segments":null,
+         "tests":null,
+         "apiTokens":null,
+         "workspaces":null,
+         "integrations":null,
+         "permissions":null,
+         "settings":null
+      }
+  },
+  "environments": {
+    "with_unknown": [
+       {
+          "name":"Prod-Global",
+          "unknown_value": "val",
+          "id":"6s4cdfb0-b8g9-11r9-a012-0fggd41h077c",
+          "production":true
+       },
+       {
+          "name":"Stg-Global",
+          "id":"6264f630-g869-1ge9-ag10-0a2edg10077c",
+          "production":false
+       }
+    ],
+    "without_unknown": [
+       {
+          "name":"Prod-Global",
+          "id":"6s4cdfb0-b8g9-11r9-a012-0fggd41h077c",
+          "production":true
+       },
+       {
+          "name":"Stg-Global",
+          "id":"6264f630-g869-1ge9-ag10-0a2edg10077c",
+          "production":false
+       }
+    ]
+  }
+}

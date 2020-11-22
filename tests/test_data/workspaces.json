@@ -1,0 +1,28 @@
+{
+    "objects": [
+        {
+            "name": "Default",
+            "id": "7189086c-ae20-22e9-9f6b-0g1c02136776"
+        },
+        {
+            "name": "Testing",
+            "id": "6249c770-3869-11e3-af10-0a5ed410077f"
+        },
+        {
+            "name": "TEMPORARY workspace",
+            "id": "96ffcfd0-ff5a-1ge9-8bdg-0af2d28a439w"
+        },
+        {
+            "name": "Sandbox",
+            "id": "f78715g0-fg63-12e9-270f-12b8d902ee24"
+        },
+        {
+            "name": "Test Automation",
+            "id": "9f7g7660-6g12-11e3-af1f-0ed25467b33b"
+        }
+    ],
+    "unknown_field": "value",
+    "offset": 0,
+    "limit": 50,
+    "totalCount": 5
+}

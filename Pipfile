@@ -1,0 +1,23 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+flake8 = "~=3.7"
+bandit = "~=1.6"
+pytest-cov = "~=2.8"
+pytest = "~=5.4"
+mypy = "==0.770"
+responses = "~=0.10"
+sphinx = "~=3.3"
+tox = "~=3.20"
+sphinx-rtd-theme = "~=0.5"
+
+[packages]
+requests = "~=2.23"
+marshmallow = "~=3.6"
+jsonpatch = "~=1.25"
+
+[requires]
+python_version = "3.8"

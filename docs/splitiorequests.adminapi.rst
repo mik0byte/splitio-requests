@@ -1,0 +1,5 @@
+AdminAPI
+========
+
+.. automodule:: splitiorequests
+   :members:

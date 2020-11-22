@@ -1,0 +1,32 @@
+language: python
+
+stages:
+  - validate
+  - test
+  - coverage
+    if: branch = master
+  - deploy
+    if: branch = master
+
+jobs:
+  include:
+    - stage: validate
+      script: tox -e flake8
+    - stage: validate
+      script: tox -e bandit
+    - stage: validate
+      script: tox -e mypy
+    - stage: test
+      script: tox
+    - stage: coverage
+      script:
+        - pip install codecov==2.1.10
+        - tox -e coverage
+      after_success:
+        - codecov
+    - stage: deploy
+      script: echo "Building to PyPI"
+      deploy:
+        provider: pypi
+        user: __token__
+        password: $PYPI_TOKEN
