@@ -61,4 +61,6 @@ jobs:
         provider: pypi
         username: __token__
         password: $PYPI_TOKEN
+        on:
+          branch: main
       if: (branch = main) AND (NOT (type IN (pull_request)))
