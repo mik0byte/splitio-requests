@@ -44,16 +44,16 @@ jobs:
     - stage: test
       python: 3.9
       script: tox -e py39
-      if: branch != master
+      if: branch != main
     - stage: coverage
+      workspaces:
+        use: coverage-report
       python: 3.8
       before_script:
         - pip install codecov==2.1.10
       script:
         - codecov
-      workspaces:
-        use: coverage-report
-      if: branch = master
+      if: (branch = main) AND (NOT (type IN (push, pull_request)))
     - stage: deploy
       python: 3.8
       script: skip
@@ -61,4 +61,4 @@ jobs:
         provider: pypi
         username: __token__
         password: $PYPI_TOKEN
-      if: branch = master
+      if: (branch = main) AND (NOT (type IN (push, pull_request)))
