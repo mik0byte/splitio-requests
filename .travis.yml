@@ -53,7 +53,7 @@ jobs:
         - pip install codecov==2.1.10
       script:
         - codecov
-      if: (branch = main) AND (NOT (type IN (push, pull_request)))
+      if: (branch = main) AND (NOT (type IN (pull_request)))
     - stage: deploy
       python: 3.8
       script: skip
@@ -61,4 +61,4 @@ jobs:
         provider: pypi
         username: __token__
         password: $PYPI_TOKEN
-      if: (branch = main) AND (NOT (type IN (push, pull_request)))
+      if: (branch = main) AND (NOT (type IN (pull_request)))
