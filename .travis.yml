@@ -1,3 +1,5 @@
+os: linux
+dist: xenial
 language: python
 cache: pip
 install: travis_retry pip install -U tox
@@ -12,38 +14,51 @@ stages:
 jobs:
   include:
     - stage: validate
+      python: 3.8
       script: tox -e flake8
-      python: 3.8
+      if: branch != main
     - stage: validate
+      python: 3.8
       script: tox -e bandit
-      python: 3.8
+      if: branch != main
     - stage: validate
-      script: tox -e mypy
       python: 3.8
+      script: tox -e mypy
+      if: branch != main
     - stage: test
       python: 3.6
       script: tox -e py36
+      if: branch != main
     - stage: test
       python: 3.7.9
       script: tox -e py37
+      if: branch != main
     - stage: test
       python: 3.8
-      script: tox -e py38
+      script: tox -e coverage
+      workspaces:
+        create:
+          name: coverage-report
+          paths:
+            - coverage.xml
     - stage: test
       python: 3.9
       script: tox -e py39
+      if: branch != main
     - stage: coverage
-      script:
-        - pip install codecov==2.1.10
-        - tox -e coverage
+      workspaces:
+        use: coverage-report
       python: 3.8
-      include:
-          if: branch = master
-      after_success:
+      before_script:
+        - pip install codecov==2.1.10
+      script:
         - codecov
+      if: (branch = main) AND (NOT (type IN (push, pull_request)))
     - stage: deploy
       python: 3.8
+      script: skip
       deploy:
         provider: pypi
-        user: __token__
+        username: __token__
         password: $PYPI_TOKEN
+      if: (branch = main) AND (NOT (type IN (push, pull_request)))
