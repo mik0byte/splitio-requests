@@ -41,6 +41,7 @@ jobs:
           name: coverage-report
           paths:
             - coverage.xml
+      if: type = push
     - stage: test
       python: 3.9
       script: tox -e py39
