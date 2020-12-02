@@ -1,0 +1,143 @@
+{
+  "segment_create":  {
+    "without_unknown": {"name" : "test_segment", "description":"this was created from the API"},
+    "with_unknown": {"name" : "test_segment", "description":"this was created from the API", "unknown_field":  "value"}
+  },
+  "segment_in_environment": {
+    "name": "test_segment",
+    "environment": {
+        "id": "624a3ca1-b777-22e9-b012-0a5ed410077a",
+        "name": "Development"
+    },
+    "trafficType": {
+        "id": "624a3ca1-b777-22e9-b012-0a5ed410077c",
+        "name": "user"
+    },
+    "creationTime": 1577737036448
+  },
+  "list_segments_workspace": {
+     "objects":[
+        {
+           "name":"demo_segment",
+           "description":null,
+           "trafficType":{
+              "id":"624a3ca1-b777-22e9-b012-0a5ed410077c",
+              "name":"user"
+           },
+           "creationTime":1605732878465,
+           "tags":null
+        },
+        {
+           "name":"test",
+           "description":null,
+           "trafficType":{
+              "id":"624a3ca1-b777-22e9-b012-0a5ed410077c",
+              "name":"user"
+           },
+           "creationTime":1606902040622,
+           "tags":null
+        },
+        {
+           "name":"Test_Segment",
+           "description":null,
+           "trafficType":{
+              "id":"624a3ca1-b777-22e9-b012-0a5ed410077c",
+              "name":"user"
+           },
+           "creationTime":1570043742723,
+           "tags":null
+        }
+     ],
+     "offset":0,
+     "limit":50,
+     "totalCount":3
+  },
+  "list_segments_environment": {
+     "objects":[
+        {
+           "name":"demo_segment",
+           "environment":{
+              "id":"624cd4b0-b869-11e9-a010-0a5ed410077a",
+              "name":"Prod"
+           },
+           "trafficType":{
+              "id":"624a3ca0-b869-11e9-a010-0a5ed410077a",
+              "name":"user"
+           },
+           "creationTime":1605732883122
+        },
+        {
+           "name":"test",
+           "environment":{
+              "id":"624cd4b0-b869-11e9-a010-0a5ed410077a",
+              "name":"Prod"
+           },
+           "trafficType":{
+              "id":"624a3ca0-b869-11e9-a010-0a5ed410077a",
+              "name":"user"
+           },
+           "creationTime":1606902140933
+        }
+     ],
+     "offset":0,
+     "limit":50,
+     "totalCount":2
+  },
+  "create_segment_keys_resp": {
+      "id": "ac887930-3482-11eb-bb83-12b0574183ff",
+      "orgId": "7181b560-ae32-22e9-9e6e-0acc02g36776",
+      "environment": "624a3ca1-b777-22e9-b012-0a5ed410077c",
+      "environmentURN": {
+          "type": "Environment",
+          "id": "624a3ca1-b777-22e9-b012-0a5ed410077c",
+          "name": "Prod"
+      },
+      "name": "test",
+      "trafficTypeId": "624a3ca1-b777-22e9-b012-0a5ed410077c",
+      "trafficTypeURN": {
+          "type": "TRAFFIC_TYPE",
+          "id": "624a3ca1-b777-22e9-b012-0a5ed410077c",
+          "name": "user"
+      },
+      "description": null,
+      "creator": {
+          "type": "User",
+          "id": "aef02f90-f4gd-1139-a430-116ffev4c55e",
+          "name": "name"
+      },
+      "status": "ACTIVE",
+      "creationTime": 1606902140922,
+      "lastUpdateTime": 1606928542243,
+      "iAmInThisSegment": null,
+      "metadataId": "70b228c0-ff82-11cv-abg1-0e672741d143",
+      "keys": null,
+      "openChangeRequestId": null,
+      "approvers": null,
+      "type": "Segment"
+  },
+  "create_segment_keys": {"keys":["id1", "id2", "id3"], "comment":"a comment"},
+  "create_segment_keys_with_unknown": {"keys":["id1", "id2", "id3"], "comment":"a comment", "unknown_field":  "value"},
+  "segment_keys_environment": {
+    "keys": [
+      {
+        "key": "key_1"
+      },
+      {
+        "key": "key_2"
+      },
+      {
+        "key": "key_3"
+      },
+      {
+        "key": "key_4"
+      },
+      {
+        "key": "key_5"
+      }
+    ],
+    "count": 200,
+    "offset": 5,
+    "limit": 5
+  },
+  "remove_segment_keys": {"code": 200, "message": "Deleted 5 keys", "details": null, "transactionId": null}
+}

@@ -4,6 +4,7 @@ from .environments import load_environment, dump_environment, load_environments,
 from .workspaces import load_workspaces, dump_workspaces
 from .traffic_types import load_traffic_types, dump_traffic_types
 from .tags import load_tags, dump_tags
+from .segments import load_segment, dump_segment, load_segment_keys, dump_segment_keys
 
 __all__ = [
     'load_split',
@@ -24,4 +25,8 @@ __all__ = [
     'dump_traffic_types',
     'load_tags',
     'dump_tags',
+    'load_segment',
+    'dump_segment',
+    'load_segment_keys',
+    'dump_segment_keys',
 ]

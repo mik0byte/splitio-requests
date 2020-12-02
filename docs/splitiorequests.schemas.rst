@@ -10,5 +10,6 @@ Schema Subpackages
    splitiorequests.schemas.workspaces
    splitiorequests.schemas.environments
    splitiorequests.schemas.traffictypes
+   splitiorequests.schemas.segments
    splitiorequests.schemas.splits
    splitiorequests.schemas.tags

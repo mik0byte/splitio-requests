@@ -9,6 +9,12 @@ splitiorequests.serializers.environments module
 .. automodule:: splitiorequests.serializers.environments
    :members:
 
+splitiorequests.serializers.segments module
+-------------------------------------------
+
+.. automodule:: splitiorequests.serializers.segments
+   :members:
+
 splitiorequests.serializers.splits module
 -----------------------------------------
 

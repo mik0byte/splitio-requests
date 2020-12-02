@@ -16,6 +16,17 @@ Currently supported endpoints
     * `Update Environment <https://docs.split.io/reference#update-environment>`_
 * **Traffic Types**
     * `Get Traffic Types <https://docs.split.io/reference#get-traffic-types>`_
+* **Segments**
+    * `Create Segment <https://docs.split.io/reference#create-segment>`_
+    * `Delete Segment <https://docs.split.io/reference#delete-segment>`_
+    * `Enable Segment in Environment <https://docs.split.io/reference#enable-segment-in-environment>`_
+    * `Deactivate Segment in Environment <https://docs.split.io/reference#deactivate-segment-in-environment>`_
+    * `List Segments <https://docs.split.io/reference#list-segments>`_
+    * `List Segments in Environment <https://docs.split.io/reference#list-segments-in-environment>`_
+    * `Update Segment Keys in Environment via CSV <https://docs.split.io/reference#update-segment-keys-in-environment-via-csv>`_
+    * `Update Segment Keys in Environment via JSON <https://docs.split.io/reference#update-segment-keys-in-environment-via-json>`_
+    * `Get Segment Keys in Environment <https://docs.split.io/reference#get-segment-keys-in-environment>`_
+    * `Remove Segment Keys from Environment <https://docs.split.io/reference#remove-segment-keys-from-environment>`_
 * **Splits**
     * `Create Split <https://docs.split.io/reference#create-split>`_
     * `List Splits <https://docs.split.io/reference#list-splits>`_
@@ -85,6 +96,7 @@ There are available properties on AdminAPI's object.
 * workspaces
 * environments
 * traffictypes
+* segments
 * splits
 * tags
 

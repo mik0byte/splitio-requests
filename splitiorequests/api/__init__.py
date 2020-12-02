@@ -12,6 +12,7 @@ from urllib3.util.retry import Retry
 
 from .tags import TagsRequests
 from .splits import SplitsRequests
+from .segments import SegmentsRequests
 from .workspaces import WorkspacesRequests
 from .environments import EnvironmentsRequests
 from .traffic_types import TrafficTypesRequests
@@ -68,6 +69,7 @@ class AdminAPI(APIRequestsBase):
         self.__workspaces = WorkspacesRequests(self._headers, self._hostname, self.__session)
         self.__traffic_types = TrafficTypesRequests(self._headers, self._hostname, self.__session)
         self.__tags = TagsRequests(self._headers, self._hostname, self.__session)
+        self.__segments = SegmentsRequests(self._headers, self._hostname, self.__session)
 
     def _super_session(
             self,
@@ -142,3 +144,12 @@ class AdminAPI(APIRequestsBase):
         """
 
         return self.__tags
+
+    @property
+    def segments(self):
+        """
+        Manager class object for segments endpoints
+        :return: SegmentsRequests
+        """
+
+        return self.__segments
