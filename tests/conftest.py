@@ -68,6 +68,16 @@ def tags():
 
 
 @pytest.fixture(scope="class")
+def segments():
+    segments_json_path = pathlib.Path(__file__).parent.joinpath('test_data').joinpath('segments.json')
+
+    with open(str(segments_json_path), 'r') as file:
+        segments_json = json.load(file)
+
+    return segments_json
+
+
+@pytest.fixture(scope="class")
 def admin_api():
     session = AdminAPI('verysecretkey')
     return session

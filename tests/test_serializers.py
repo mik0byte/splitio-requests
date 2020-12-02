@@ -4,7 +4,7 @@ import marshmallow
 from splitiorequests.serializers import (
     load_split, load_splits, load_split_definition, load_split_definitions,
     load_environment, load_environments, load_workspaces, load_traffic_types,
-    load_tags
+    load_tags, load_segment, load_segment_keys
 )
 
 
@@ -71,3 +71,17 @@ class TestSerializers:
 
     def test_load_tags_exclude_unknown(self, tags):
         load_tags(tags, unknown_handler='EXCLUDE')
+
+    def test_load_segment_raise_unknown(self, segments):
+        with pytest.raises(marshmallow.exceptions.ValidationError):
+            load_segment(segments['segment_create']['with_unknown'])
+
+    def test_load_segment_exclude_unknown(self, segments):
+        load_segment(segments['segment_create']['with_unknown'], unknown_handler='EXCLUDE')
+
+    def test_load_segment_keys_raise_unknown(self, segments):
+        with pytest.raises(marshmallow.exceptions.ValidationError):
+            load_segment_keys(segments['create_segment_keys_with_unknown'])
+
+    def test_load_segment_keys_exclude_unknown(self, segments):
+        load_segment_keys(segments['create_segment_keys_with_unknown'], unknown_handler='EXCLUDE')

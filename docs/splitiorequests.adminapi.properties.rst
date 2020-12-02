@@ -21,6 +21,12 @@ splitiorequests.api.traffic\_types module
 .. automodule:: splitiorequests.api.traffic_types
    :members:
 
+splitiorequests.api.segments module
+-----------------------------------
+
+.. automodule:: splitiorequests.api.segments
+   :members:
+
 splitiorequests.api.splits module
 ---------------------------------
 

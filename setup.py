@@ -8,7 +8,7 @@ from setuptools import setup, find_packages
 EXTRAS_REQUIRE = {
     "tests": ["pytest~=6.1", "pytest-cov~=2.10", "responses~=0.12"],
     "lint": ["mypy==0.790", "flake8~=3.8", "bandit~=1.6"],
-    "docs": ["sphinx==3.3.1", "sphinx-rtd-theme~=0.5"],
+    "docs": ["sphinx==3.3.1", "sphinx-rtd-theme~=0.5", "six"],
 }
 
 
@@ -21,7 +21,7 @@ def read(fname):
 
 setup(
     name='splitio-requests',
-    version='1.1.1',
+    version='1.2.0',
     author='Mikayel Aleksanyan',
     author_email='miko@cyberprogrammers.net',
     license='MIT',

@@ -1,8 +1,6 @@
 splitiorequests.schemas.splits package
 ======================================
 
-Submodules
-----------
 
 splitiorequests.schemas.splits.between\_schema module
 -----------------------------------------------------
