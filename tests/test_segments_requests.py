@@ -135,8 +135,8 @@ class TestSegmentsRequests:
             status=200
         )
 
+        csv_file_path = os.path.join(os.path.dirname(__file__), 'test_data')
         csv_file_name = 'segment_keys.csv'
-        csv_file_path = "test_data"
 
         update_segment_keys_in_environment_via_csv = admin_api.segments.update_segment_keys_in_environment_via_csv(
             environment_id,

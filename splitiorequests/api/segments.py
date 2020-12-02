@@ -312,8 +312,6 @@ class SegmentsRequests:
         :return: SegmentsResponse object
         """
         files = [('file', (csv_file_name, open(os.path.join(csv_file_path, csv_file_name), 'rb'), 'text/csv'))]
-        head = self.__headers
-        head.pop('Content-Type')
         log.info(f"Updating segment keys in '{environment_id}' environment with CSV file")
         update_resp = self.__session.put(
             f'{self.__hostname}/{environment_id}/{segment_name}/upload?replace={replace}',
