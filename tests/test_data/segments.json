@@ -135,9 +135,9 @@
         "key": "key_5"
       }
     ],
-    "count": 200,
-    "offset": 5,
-    "limit": 5
+    "count": 5,
+    "offset": 0,
+    "limit": 100
   },
   "remove_segment_keys": {"code": 200, "message": "Deleted 5 keys", "details": null, "transactionId": null}
 }

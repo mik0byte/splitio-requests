@@ -21,7 +21,7 @@ def read(fname):
 
 setup(
     name='splitio-requests',
-    version='1.2.0',
+    version='1.2.1',
     author='Mikayel Aleksanyan',
     author_email='miko@cyberprogrammers.net',
     license='MIT',

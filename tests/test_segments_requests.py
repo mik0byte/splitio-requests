@@ -176,22 +176,21 @@ class TestSegmentsRequests:
     def test_get_segment_keys_in_environment(self, admin_api, segments):
         environment_id = '624a3ca1-b777-22e9-b012-0a5ed410077c'
         segment_name = 'test_segment'
+        limit = 100
+        offset = 0
         responses.add(
             responses.GET,
-            f"https://api.split.io/internal/api/v2/segments/{environment_id}/{segment_name}/keys",
+            f"https://api.split.io/internal/api/v2/segments/{environment_id}/{segment_name}/keys"
+            f"?limit={limit}&offset={offset}",
             json=segments['segment_keys_environment'],
             status=200
         )
 
-        get_segment_keys_in_environment = admin_api.segments.get_segment_keys_in_environment(
-            environment_id,
-            segment_name,
-        )
-
-        assert get_segment_keys_in_environment
-        assert get_segment_keys_in_environment.json() == segments['segment_keys_environment']
-        assert len(responses.calls) == 1
-        assert responses.calls[0].request.url == get_segment_keys_in_environment.url
+        for segments_keys_chunk in admin_api.segments.get_segment_keys_in_environment(environment_id, segment_name):
+            assert segments_keys_chunk
+            assert segments['segment_keys_environment'] == segments_keys_chunk.json()
+            assert len(responses.calls) == 1
+            assert responses.calls[0].request.url == segments_keys_chunk.url
 
     @responses.activate
     def test_remove_segment_keys_from_environment(self, admin_api, segments):

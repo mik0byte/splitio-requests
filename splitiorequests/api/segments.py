@@ -10,12 +10,12 @@ from typing import Dict, Optional, Union, NoReturn, Iterator
 
 from requests import Response, Session
 
-
 log = logging.getLogger('splitiorequests')
 
 
 class SegmentsResponse:
     """Segments endpoint response"""
+
     def __init__(self, response: Response) -> None:
         """
         :param response: Request's response object
@@ -35,6 +35,7 @@ class SegmentsResponse:
 
 class SegmentsRequests:
     """Segments endpoints"""
+
     def __init__(self, headers: Dict[str, str], hostname: str, session: Session) -> None:
         """
         :param headers: Headers to include in requests
@@ -348,27 +349,80 @@ class SegmentsRequests:
 
         return SegmentsResponse(update_resp)
 
+    def __get_segment_keys_in_environment_chunk(
+            self,
+            environment_id: str,
+            segment_name: str,
+            offset: int = 0,
+            limit: int = 50,
+            headers: Optional[Dict[str, str]] = None
+    ) -> SegmentsResponse:
+        """
+        Retrieving list of segments keys with specified parameters of pagination
+
+        Will get only part of segments keys from environment with specified limit and offset
+
+        :param environment_id: Environment ID
+        :param segment_name: Name of segment
+        :param offset: Pagination offset parameter
+        :param limit: Pagination limit parameter
+        :param headers: Headers to append to this request
+        :return: SegmentsResponse object
+        """
+        log.info(f"Getting list of segments keys from '{environment_id}' environment - offset: '{offset}' - "
+                 f"limit: '{limit}'")
+        get_resp = self.__session.get(
+            f'{self.__hostname}/{environment_id}/{segment_name}/keys?limit={limit}&offset={offset}',
+            headers=self.__method_scope_headers_update(headers or {})
+        )
+        return SegmentsResponse(get_resp)
+
     def get_segment_keys_in_environment(
             self,
             environment_id: str,
             segment_name: str,
+            offset: int = 0,
+            limit: int = 100,
             headers: Optional[Dict[str, str]] = None
-    ) -> SegmentsResponse:
+    ) -> Union[NoReturn, Iterator[SegmentsResponse]]:
         """
         Get Segment Keys in Environment endpoint
 
         :param environment_id: ID of Environment
         :param segment_name: Name of the segment
+        :param offset: Pagination offset parameter
+        :param limit: Pagination limit parameter
         :param headers: Headers to append to this request
         :return: SegmentsResponse object
         """
-        log.info(f"Getting segment keys from '{environment_id}' environment")
-        get_resp = self.__session.get(
-            f'{self.__hostname}/{environment_id}/{segment_name}/keys',
-            headers=self.__method_scope_headers_update(headers or {}),
-        )
+        if limit < 1 or limit > 100:
+            raise ValueError("Limit should be greater than or equal to 1 and less than or equal to 50")
 
-        return SegmentsResponse(get_resp)
+        if offset < 0:
+            raise ValueError("Offset should be greater than or equal to 0")
+
+        segment_keys = self.__get_segment_keys_in_environment_chunk(environment_id, segment_name, offset,
+                                                                    limit, headers)
+        if not segment_keys:
+            log.error(f"Couldn't get segment keys list from '{environment_id}' environment")
+            yield segment_keys
+            return
+        else:
+            yield segment_keys
+
+        segment_keys_json = segment_keys.json()
+        if segment_keys_json['count'] > segment_keys_json['limit']:
+            while segment_keys_json['offset'] < segment_keys_json['count']:
+                offset += limit
+                segment_keys = self.__get_segment_keys_in_environment_chunk(environment_id, segment_name, offset,
+                                                                            limit, headers)
+                if not segment_keys:
+                    log.error(f"Couldn't get segment keys list from '{environment_id}' environment")
+                    yield segment_keys
+                    return
+                else:
+                    yield segment_keys
+                segment_keys_json = segment_keys.json()
 
     def remove_segment_keys_from_environment(
             self,
