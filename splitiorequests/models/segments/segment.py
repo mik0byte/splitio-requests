@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Segment dataclass"""
 
 from dataclasses import dataclass

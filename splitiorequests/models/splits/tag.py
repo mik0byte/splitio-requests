@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Tag dataclass"""
 
 from dataclasses import dataclass

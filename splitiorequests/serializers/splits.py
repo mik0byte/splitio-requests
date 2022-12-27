@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Split Serializers"""
 
 from typing import Optional

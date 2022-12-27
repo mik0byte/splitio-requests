@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Split Definition's Rule's Matcher Schema"""
 
 from marshmallow import Schema, fields, post_dump, post_load

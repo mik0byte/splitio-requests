@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Environments endpoint classes
 
 Requests and Response classes for Environment endpoint

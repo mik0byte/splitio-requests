@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Workspaces endpoint classes
 
 Requests and Response classes for Workspaces endpoint

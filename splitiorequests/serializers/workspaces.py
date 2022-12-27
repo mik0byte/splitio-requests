@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Workspace Serializers"""
 
 from typing import Optional

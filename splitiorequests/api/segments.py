@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Segments endpoint classes
 
 Requests and Response classes for Segments endpoint

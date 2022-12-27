@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Environment dataclass"""
 
 from dataclasses import dataclass

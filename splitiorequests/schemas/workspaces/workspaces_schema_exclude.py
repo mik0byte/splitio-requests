@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Workspaces Schema with exclude"""
 
 from marshmallow import Schema, fields, post_load, post_dump, EXCLUDE

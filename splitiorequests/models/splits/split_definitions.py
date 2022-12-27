@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Split Definitions dataclass"""
 
 from typing import List

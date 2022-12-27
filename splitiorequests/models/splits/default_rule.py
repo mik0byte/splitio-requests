@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Default Rule dataclass"""
 
 from dataclasses import dataclass

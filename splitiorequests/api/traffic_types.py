@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Traffic Types endpoint classes
 
 Requests and Response classes for Traffic Types endpoint

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Utils methods suite"""
 
 from marshmallow import EXCLUDE, RAISE

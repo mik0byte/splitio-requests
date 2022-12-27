@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """TrafficType Serializers"""
 
 from typing import Optional, List, Dict

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Matcher dataclass"""
 
 from dataclasses import dataclass

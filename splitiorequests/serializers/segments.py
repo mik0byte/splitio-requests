@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Segment and Segment Keys Serializers"""
 
 from typing import Optional

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Depends dataclass"""
 
 from typing import List

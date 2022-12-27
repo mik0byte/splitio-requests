@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Treatment dataclass"""
 
 from dataclasses import dataclass

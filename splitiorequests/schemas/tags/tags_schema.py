@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Tags Schema"""
 
 from marshmallow import Schema, fields, post_load, post_dump

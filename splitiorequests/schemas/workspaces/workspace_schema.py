@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Workspace Schema"""
 
 from marshmallow import Schema, fields, post_dump, post_load

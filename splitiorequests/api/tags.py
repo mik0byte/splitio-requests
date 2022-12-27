@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Tags endpoint classes
 
 Requests and Response classes for Tags endpoint
