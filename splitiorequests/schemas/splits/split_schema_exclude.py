@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Split Schema with exclude"""
 
 from marshmallow import Schema, fields, post_dump, post_load, EXCLUDE
@@ -18,10 +17,10 @@ class SplitSchemaExclude(Schema):
         ordered = True
 
     name = fields.Str(required=True)
-    description = fields.Str(missing=None)
+    description = fields.Str(load_default=None)
     trafficType = fields.Nested(TrafficTypeSchemaExclude)
     creationTime = fields.Integer()
-    tags = fields.List(fields.Nested(TagSchemaExclude), missing=None)
+    tags = fields.List(fields.Nested(TagSchemaExclude), load_default=None)
 
     @post_load
     def load_split(self, data, **kwargs):

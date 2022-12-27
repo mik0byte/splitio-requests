@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Traffic Type Schema with exclude"""
 
 from marshmallow import Schema, fields, post_dump, post_load, EXCLUDE

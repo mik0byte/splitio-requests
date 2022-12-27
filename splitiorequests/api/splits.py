@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Splits endpoint classes
 
 Requests and Response classes for Splits endpoint

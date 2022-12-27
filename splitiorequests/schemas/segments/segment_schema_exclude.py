@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Segment Schema with exclude"""
 
 from marshmallow import Schema, fields, post_dump, post_load, EXCLUDE
@@ -16,7 +15,7 @@ class SegmentSchemaExclude(Schema):
         unknown = EXCLUDE
 
     name = fields.Str(required=True)
-    description = fields.Str(missing=None)
+    description = fields.Str(load_default=None)
 
     @post_load
     def load_segment(self, data, **kwargs):

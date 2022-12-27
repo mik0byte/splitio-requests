@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Segment Schema"""
 
 from marshmallow import Schema, fields, post_dump, post_load
@@ -15,7 +14,7 @@ class SegmentSchema(Schema):
         ordered = True
 
     name = fields.Str(required=True)
-    description = fields.Str(missing=None)
+    description = fields.Str(load_default=None)
 
     @post_load
     def load_segment(self, data, **kwargs):

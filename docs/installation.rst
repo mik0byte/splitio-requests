@@ -6,7 +6,7 @@ Installation
 
 This part of the documentation covers the installation of **splitio-requests**.
 
-| **Requires** - Python >= 3.6
+| **Requires** - Python >= 3.7
 | **Dependencies** - *requests*, *marshmallow*, *jsonpatch*.
 
 Installing/Upgrading from the PyPI

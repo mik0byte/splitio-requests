@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Environment Serializers"""
 
 from typing import Optional, List, Dict, Union

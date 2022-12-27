@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Segment Keys Schema with exclude"""
 
 from marshmallow import Schema, fields, post_dump, post_load, EXCLUDE
@@ -16,7 +15,7 @@ class SegmentKeysSchemaExclude(Schema):
         unknown = EXCLUDE
 
     keys = fields.List(fields.Str(), required=True)
-    comment = fields.Str(missing=None)
+    comment = fields.Str(load_default=None)
 
     @post_load
     def load_segment_keys(self, data, **kwargs):

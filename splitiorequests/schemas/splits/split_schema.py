@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Split Schema"""
 
 from marshmallow import Schema, fields, post_dump, post_load
@@ -20,7 +19,7 @@ class SplitSchema(Schema):
     description = fields.Str()
     trafficType = fields.Nested(TrafficTypeSchema)
     creationTime = fields.Integer()
-    tags = fields.List(fields.Nested(TagSchema), missing=None)
+    tags = fields.List(fields.Nested(TagSchema), load_default=None)
 
     @post_load
     def load_split(self, data, **kwargs):

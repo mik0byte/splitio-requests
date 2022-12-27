@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Split Definition's Default Rule Schema with exclude"""
 
 from marshmallow import Schema, fields, post_load, post_dump, EXCLUDE

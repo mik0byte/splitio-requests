@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Tag Serializers"""
 
 from typing import Optional, List, Dict

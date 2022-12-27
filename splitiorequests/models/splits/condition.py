@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Condition dataclass"""
 
 from typing import List

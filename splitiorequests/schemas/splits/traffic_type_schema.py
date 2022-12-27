@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Traffic Type Schema"""
 
 from marshmallow import Schema, fields, post_load, post_dump

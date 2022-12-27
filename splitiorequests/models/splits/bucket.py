@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Bucket dataclass"""
 
 from dataclasses import dataclass

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Split Definition's Rule's Bucket Schema"""
 
 

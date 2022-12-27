@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """AdminAPI class
 
 Main class for interacting with Split.io public API.

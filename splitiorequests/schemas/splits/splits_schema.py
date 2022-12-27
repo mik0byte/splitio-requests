@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
 from marshmallow import Schema, fields, post_load, post_dump
 
 from .split_schema import SplitSchema

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """HTTP Adapter with timeout for Session"""
 
 from requests.adapters import HTTPAdapter
